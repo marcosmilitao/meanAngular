@@ -43,10 +43,10 @@ export class AppComponent implements OnInit {
 
   editTodo(todo: ToDo) {
     console.log(todo)
-    if(this.todosList.includes(todo)){
-      if(!this.editTodos.includes(todo)){
+    if (this.todosList.includes(todo)) {
+      if (!this.editTodos.includes(todo)) {
         this.editTodos.push(todo)
-      }else{
+      } else {
         this.editTodos.splice(this.editTodos.indexOf(todo), 1)
         this.todoService.editTodo(todo).subscribe(res => {
           console.log('Update Succesful')
@@ -58,7 +58,7 @@ export class AppComponent implements OnInit {
     }
   }
 
-  doneTodo(todo:ToDo){
+  doneTodo(todo: ToDo) {
     todo.status = 'Done'
     this.todoService.editTodo(todo).subscribe(res => {
       console.log('Update Succesful')
@@ -68,8 +68,8 @@ export class AppComponent implements OnInit {
     })
   }
 
-  submitTodo(event, todo:ToDo){
-    if(event.keyCode ==13){
+  submitTodo(event, todo: ToDo) {
+    if (event.keyCode == 13) {
       this.editTodo(todo)
     }
   }
